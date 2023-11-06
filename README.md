@@ -47,4 +47,7 @@
             document.getElementById("demo").innerHTML = "the answer is " + answer;
         }
         </script>
+    <br>
+    <br>
+     <a href="https://daleksupreme1.github.io/"><button>back</button></a>
 </html>
