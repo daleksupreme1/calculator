@@ -1,54 +1,29 @@
-<html> 
-    <label for="numberA">enter first number: </label> <input type="text" id="numberA" name="numberA">
-    <br>
-    <br>
-    <label for="numberB">enter second number: </label> <input type="text" id="numberB" name="numberB">
-     <br>
-    <br>
-<button type="button" onclick="multiplyXY()">multiply</button>
-    <br>
-    <button type="button" onclick="subtractXY()">subtract</button>
-    <br>
-     <button type="button" onclick="divideXY()">divide</button>
-    <br>
-    <button type="button" onclick="addXY()">add</button>
-    <br>
-    <br>
-    <p id="demo">the result will appear here</p>
+ <html>
+    <head>
+        <title>Clicker</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://unpkg.com/@wcj/dark-mode"></script>
+    </head>
     <script>
-        function multiplyXY() {
-         var a = document.getElementById("numberA").value;
-        var b = document.getElementById("numberB").value;
-        var answer = a*b;
-            document.getElementById("demo").innerHTML = "the answer is " + answer;
+        function addPoint(points) {
+            document.getElementById("score").innerHTML = parseInt(document.getElementById("score").innerHTML) + points;
         }
-        </script>
-     <script>
-        function subtractXY() {
-         var a = document.getElementById("numberA").value;
-        var b = document.getElementById("numberB").value;
-        var answer = a-b;
-            document.getElementById("demo").innerHTML = "the answer is " + answer;
+    </script>
+    <p id="score">0</p>
+    <button type="button" onclick="addPoint(1)" class="button button1">click</button>
+    <button type="button" onclick="addCps(1)" class="button button2">add cps for 10 points</button> 
+    <p>cps: <cps id="cps">0</cps></p>
+    <script>
+        function addCps(cpsValue) {
+            if(parseInt(document.getElementById("score").innerHTML) >= 10){
+                document.getElementById("score").innerHTML = parseInt(document.getElementById("score").innerHTML) - 10;
+                document.getElementById("cps").innerHTML = parseInt(document.getElementById("cps").innerHTML) + cpsValue;
+            }
         }
-        </script>
-      <script>
-        function divideXY() {
-         var a = document.getElementById("numberA").value;
-        var b = document.getElementById("numberB").value;
-        var answer = a/b;
-            document.getElementById("demo").innerHTML = "the answer is " + answer;
-        }
-        </script>
-     <script>
-        function addXY() {
-         var a = parseInt( document.getElementById("numberA").value);
-        var b = parseInt( document.getElementById("numberB").value);
-        var answer = a + b;
-            document.getElementById("demo").innerHTML = "the answer is " + answer;
-        }
-        </script>
-    <br>
-    <br>
-     <a href="https://daleksupreme1.github.io/"><button>back</button></a>
+        setInterval(function(){addPoint(parseInt(document.getElementById("cps").innerHTML))}, 1000);
+    </script>
+    <dark-mode dark="Dark" light="Light"></dark-mode>
 </html>
-
